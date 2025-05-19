@@ -111,7 +111,6 @@ export interface ApiService<T> {
   remove: (id: string | number) => Promise<ApiResponse<unknown>>;
 }
 
-// Função para criar um serviço de API para um recurso específico
 export function createApiService<T>(baseEndpoint: string): ApiService<T> {
   return {
     getAll: () => get<T[]>(baseEndpoint),
