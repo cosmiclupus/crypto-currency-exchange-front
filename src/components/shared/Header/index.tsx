@@ -5,14 +5,14 @@ import { useAuth } from '../../../contexts/Auth';
 interface HeaderProps {
   activeTab: string;
   onTabSelect: (key: string) => void;
-  bidAskView?: 'bid' | 'ask'; // Agora apenas bid ou ask, sem 'both'
+  bidAskView?: 'bid' | 'ask';
   onBidAskViewChange?: (view: 'bid' | 'ask') => void;
 }
 
 export default function Header({ 
   activeTab, 
   onTabSelect, 
-  bidAskView = 'bid', // Default para 'bid'
+  bidAskView = 'bid', 
   onBidAskViewChange 
 }: HeaderProps) {
   const { state, logout } = useAuth();
@@ -94,7 +94,6 @@ export default function Header({
                   </Nav.Link>
                 </Nav.Item>
                 
-                {/* Manter o dropdown, mas apenas com as opções Bid e Ask */}
                 <Dropdown>
                   <Dropdown.Toggle 
                     variant={activeTab === 'bidAsk' ? 'primary' : 'dark'} 
@@ -123,7 +122,6 @@ export default function Header({
             </div>
           </Col>
           
-          {/* Saldos e botão de logout */}
           <Col md={3} className="text-end">
             <div className="d-flex justify-content-end align-items-center">
               <div className="px-3 py-1 me-2 rounded" style={{ backgroundColor: 'rgba(0, 128, 0, 0.1)', border: '1px solid #28a745' }}>
