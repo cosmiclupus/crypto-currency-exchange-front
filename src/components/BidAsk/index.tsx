@@ -15,7 +15,7 @@ interface OrderBookData {
 
 interface OrderBookProps {
   itemsPerPage?: number;
-  viewMode?: 'bid' | 'ask'; // Nova prop para controlar quais dados exibir
+  viewMode?: 'bid' | 'ask'; 
 }
 
 /**
@@ -73,7 +73,6 @@ export default function OrderBook({
     return () => clearInterval(interval);
   }, [itemsPerPage, viewMode]); // Adicionado viewMode às dependências
 
-  // Reset página atual quando mudar o modo de visualização
   useEffect(() => {
     setCurrentPage(1);
   }, [viewMode]);
@@ -86,7 +85,6 @@ export default function OrderBook({
     return `BTC ${value.toFixed(3)}`;
   };
 
-  // Função unificada para obter os itens da página atual
   const getCurrentItems = (): OrderBookItem[] => {
     const items = viewMode === 'bid' ? orderBook.bids : orderBook.asks;
     if (!items || items.length === 0) return [];
@@ -96,7 +94,6 @@ export default function OrderBook({
     return items.slice(start, end);
   };
   
-  // Manipulador de paginação
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
