@@ -1,0 +1,38 @@
+{
+  "name": "crypto-exchange-frontend*",
+  "version": "1.0.0",
+  "description": "Trading platform",
+  "source": "./src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build",
+    "type-check": "tsc --noEmit",
+    "docker:build": "docker build -t wisiex-frontend .",
+    "docker:stop": "docker stop wisiex-frontend-container || echo 'Container not running'",
+    "docker:remove": "docker rm wisiex-frontend-container || echo 'No container to remove'",
+    "docker:run": "docker run -p 1234:1234 -d --name wisiex-frontend-container wisiex-frontend",
+    "docker:start": "npm run docker:build && npm run docker:stop && npm run docker:remove && npm run docker:run"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "bootstrap": "^5.3.2",
+    "jwt-decode": "^4.0.0",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.9.1",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.19.0",
+    "socket.io-client": "^4.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.14",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "buffer": "^6.0.3",
+    "parcel": "^2.10.2",
+    "process": "^0.11.10",
+    "typescript": "^5.2.2"
+  },
+  "browserslist": [
+    "last 2 Chrome versions"
+  ]
+}

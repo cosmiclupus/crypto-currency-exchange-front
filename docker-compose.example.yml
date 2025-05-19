@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: .
+    ports:
+      - "1234:1234"
+    volumes:
+      - ./src:/app/src
+    environment:
+      - NODE_ENV=production
